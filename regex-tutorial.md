@@ -19,7 +19,7 @@ Familiarizing oneself with the structure of regular expressions can save us, dev
 
 The main objective of my post is not to portray regular expressions as an easy or complex subject, but rather, to describe one of the most interesting applications of regular expressions in **Computer Science (CS)** and **Natural Language Processing (NLP)**: _word tokenization_, the segmentation of text into words as applied in **Machine Learning (ML)** and **Text Mining**; for example, given the following versicles from The Bible:
 
-```md
+```bash
 1. In the beginning God created the heaven and the earth.
 2. And the earth was without form, and void; and darkness was upon the face of the deep. And the Spirit of God moved upon the face of the waters.
 3. And God said, Let there be light: and there was light.
