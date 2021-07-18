@@ -1,8 +1,8 @@
 # Computer Science for JavaScript: Regular Expressions (RegEx) Tutorial
 
-Regular expressions, also known as RegEx, are a "sequence of characters and symbols to define a pattern of text." These patterns of text are used to automate the search and replacement of text, and they provide great flexibility in the automation of such task. (Morrison, Michael et. al. _JavaScript® Bible, Seventh Edition_. Wiley, 2010.)
+Regular expressions, also known as **RegEx**, are a "sequence of characters and symbols to define a pattern of text." These patterns of text are used to automate the search and replacement of text, and they provide great flexibility in the automation of such task. (Morrison, Michael et. al. _JavaScript® Bible, Seventh Edition_. Wiley, 2010.)
 
-Regular expressions allow software developers to implement search and replace operations that would be a nightmare if implemented by brute force. Some popular applications include:
+Regular expressions allow software developers to implement search and replace operations that would otherwise be a nightmare if implemented by brute force. Some popular applications of RegEx include:
 
 - matching of password patterns,
 - email format checker,
@@ -15,7 +15,7 @@ An explanation of the use cases above by Fernando Doglio can be found at _medium
 
 Regular expressions are oftenly mystified as advanced material in the coding arena. For starters, they require an advanced understanding of boolean logic and feature recognition, and a very good understanding of the programming language where they are to be implemented. If the logic and features conforming the regular expression is poorly defined, debugging a piece of code that uses regular expressions to validate inputs or format outputs can be a real nightmare.
 
-Familiarizing oneself with the structure of regular expressions can save us, developers, precious time in coding new pieces of software and debugging existing code. There are a few excellent books and resources explaining regular expressions at its core. One of such books is the [Javascript Bible](#https://learning.oreilly.com/library/view/javascript-bible-seventh/9780470526910/), and another is a post by Slawomir Chodnicki, who provides a full description of regular expression patterns in ["Everything you need to know about regular expressions"](#https://towardsdatascience.com/everything-you-need-to-know-about-regular-expressions-8f622fe10b03).
+Familiarizing oneself with the structure of regular expressions can save us, developers, precious time in coding new pieces of software and debugging existing code. There are a few excellent books and resources explaining regular expressions at its core. One of such books is the [Javascript Bible](https://learning.oreilly.com/library/view/javascript-bible-seventh/9780470526910/), and another is a post by Slawomir Chodnicki, who provides a full description of regular expression patterns in ["Everything you need to know about regular expressions"](https://towardsdatascience.com/everything-you-need-to-know-about-regular-expressions-8f622fe10b03).
 
 The main objective of my post is not to portray regular expressions as an easy or complex subject, but rather, to describe one of the most interesting applications of regular expressions in **Computer Science (CS)** and **Natural Language Processing (NLP)**: _word tokenization_, the segmentation of text into words as applied in **Machine Learning (ML)** and **Text Mining**; for example, given the following statement by [Forbes Magazine](https://www.forbes.com/sites/mikepatton/2021/05/03/us-national-debt-expected-to-approach-89-trillion-by-2029/?sh=25edd7e05f13):
 
@@ -39,7 +39,7 @@ console.log(chars[8]);
 // expected output: "k"
 ```
 
-For the purposes of this discussion, I will limit the analysis to the application of **RegEx**; the discussion of **AI** and **ML** is left for another post; but, for now, it suffices for you to know that regular expressions are not only used to validate user inputs. Their applications can be quite interesting!
+For the purposes of this discussion, however, I will center the analysis to the application of **RegEx**; the discussion of **AI** and **ML** is left for another article; but, for now, it suffices for you to know that regular expressions are not only used to validate user inputs. Their applications can be quite interesting in other branches of Computer Science!
 
 Before solving the problem in question, let's review some basics of **RegEx**. If you are already familiar with the topic, and would like to skip the review, check the solution to the problem [here](#solution).
 
@@ -97,18 +97,18 @@ Other anchors include:
 - \A: matches the start of a string
 - \Z: matches the end of a string
 - \z: similar to \Z, but the main difference is that it will not match before a trailing newline at the end of a string
-- \b: used to match a character matched by \w and a character not matched by \w
+- \b: used to match a word matched by \w and a word not matched by \w
 - \B: used to match the position between characters matched by \w
 
 ### Quantifiers
 
 Quantifiers, also known as repetition operators, are used to define the number of matching tokens in the regular expression. The following characters are used for this purpose:
 
-- Question mark ("?"): used to match the preceeding token zero or one time, which makes the token optional
+- Question mark ("?"): used to match the preceeding token zero or one time, which makes the token _optional_
 - Astherisk ("\*"): used to match the preceeding token zero or more times
-- Plus ("+"): used to match the preceeding token one or more times, which makes the token required
+- Plus ("+"): used to match the preceeding token one or more times, which makes the token _required_
 
-For example, to match an HTML tag with no attributes, one could write the following regular expression:
+For example, to _match an HTML tag with no attributes_, one could write the following regular expression:
 
 ```bash
 const match = /^<[A-Za-z][A-Za-z0-9]*>/g.test("<b>");
@@ -117,7 +117,7 @@ console.log(match); // true, because the string "<b>" contains a character group
 Also,
 
 const match = /^<[A-Za-z][A-Za-z0-9]*>/g.test("<section1>");
-console.log(match); // true, because the string "<section1>" contains a character group, "[A-Za-z][A-Za-z0-9]", that is repeated zero or more times between the sharp brakets, "<>"
+console.log(match); // true, because the string "<section1>" contains a character group, "[A-Za-z][A-Za-z0-9]", that is repeated zero or more times between the sharp brakets
 ```
 
 It is possible to specify the number of times a token can be repeated. For this, regular expressions allow to specify a tuple, {min, max}, where _min_ indicates the minimum number of matches, and, as you probably guessed, _max_ indicates the maximum number of matches. Either value, _min_ or _max_, are optional. Therefore, {0, } is equivalent to "\*"; {1, } is equivalent to "+"; and {n} is equivalent to repeating the token _n_ times.
@@ -126,7 +126,7 @@ The "+", "\*", and {min, max} operators are often called **greedy operators** be
 
 ### Grouping Constructs
 
-Round brackets ("()") are used in regular expressions to group blocks, that is, to apply an operator to the entire group defined in parentheses. This is different to using square brackets ("[]"), which are used to define character classes; and curly braces ("{}"), which are used by the repetition operators. For example, to match "Hello" and "Hello World", one could write the following regular expression:
+Round brackets ("()") are used in regular expressions to group blocks, that is, to apply an operator to the entire group defined in parentheses. This is different to using square brackets ("[]"), which are used to define [Character Classes](#character-classes); and curly braces ("{}"), which are used by the [Quantifier](#quantifiers) operators. For example, to match "Hello" and "Hello World", one could write the following regular expression:
 
 ```bash
 const match = /^Hello (World)?/g.test("Hello ");
@@ -142,7 +142,7 @@ Note that in the above example, the repetition operator "?" was used after the p
 
 ### Bracket Expressions
 
-Bracket expressions are a special type of character class used to define a list of valid entries; for instance, to define a list of valid digits, one could write the following regular expression:
+Bracket expressions are a special type of [Character Classes](#character-classes) used to define a list of valid entries; for instance, to _define a list of valid digits_, one could write the following regular expression:
 
 ```bash
 const match = /^[0123456789]/g.test("7");
@@ -165,7 +165,7 @@ console.log(match); // true
 
 ### Character Classes
 
-Character classes, also known as character sets, are used to match only one out of several characters. These matching characters are expressed in square brackets ("[]"). It is possible to use a hyphen inside a character class to specify a range. Also, character classes can be negated using the "^" operator inside the square brackets; for instance, to specify that a string should contain only alpha characters, one could write the following regular expression:
+Character classes, also known as character sets, are used to match only one out of several characters. These matching characters are expressed in square brackets ("[]"). It is possible to use a hyphen inside a character class to specify a range. Also, character classes can be negated using the "^" operator inside the square brackets; for instance, to specify that a _string should contain only alpha characters_, one could write the following regular expression:
 
 ```bash
 const match = /^[a-zA-Z]/g.test("ABCabc");
@@ -204,7 +204,7 @@ console.log(match); // false, because the string "765" is not a repeating sequen
 
 ### The OR Operator
 
-The OR ("|") operator is used in conjunction with the [Grouping Constructs](#grouping-constructs) to define a logical matching condition that evaluates to true by means of either the left- or the right-hand side of the operator; the operator works just like an OR operation in boolean logic. For example, to define a regular expression to define that one likes small dogs, but not big dogs or cats, one could write the following:
+The OR ("|") operator is used in conjunction with the [Grouping Constructs](#grouping-constructs) to define a logical matching condition that evaluates to true by means of either the left- or the right-hand side of the operator; the operator works just like an OR operation in boolean logic. For example, to define a regular expression to define that _one likes small dogs, but not big dogs or cats_, one could write the following:
 
 ```bash
 const match = /^I like small dogs, but not (?:big dogs|cats)/g.test(
@@ -216,6 +216,8 @@ const match = /^I like small dogs, but not (?:big dogs|cats)/g.test(
   "I like small dogs, but not cats"
 );
 console.log(match); // true, because the string "I like small dogs, but not cats" matches the pattern by means of the "|" operator
+
+However,
 
 const match = /^I like small dogs, but not (?:big dogs|cats)/g.test(
   "I like big dogs, but not cats"
@@ -235,7 +237,7 @@ Flag are used to enable advanced searching features like case sensitivity and gl
 - \u: used to treat a pattern as a sequence of unicode points
 - \y: used to perform a "sticky" search
 
-For example, to create a regular expression that looks for a word followed by another word separated by a space character, and to specify that the search is performed globally throughout the entire string, one could write the following:
+For example, to create a regular expression that _looks for a word followed by another word separated by a space character_, and to specify that the search is performed globally throughout the entire string, one could write the following:
 
 ```bash
 const match = /^\w+\s\w+/g.test("Hello World");
@@ -260,9 +262,9 @@ Escapes are useful for handling regular expressions in strings that already incl
 
 ## Solution
 
-In the [Summary](#summary) section above a posted the problem of parsing a statement from Forbes Magazine regarding the status of the U.S. National Debt. The statement included text and numbers, and the problem was to parse the different components of the statement using regular expressions with the purpose of using the parsed data to perform other advanced tasks, say, to analyze the data and facilitate decision-making. It was also clarified that the purpose of this article is not to deep-dive into **AI** and **ML** concepts, but to make the reader aware of more advanced uses of **RegEx** in those applications.
+In the [Summary](#summary) section above I posted the problem of parsing a statement from Forbes Magazine regarding the status of the U.S. National Debt. The statement included text and numbers, and the requirement was to parse the different components of the statement using regular expressions with the purpose of using the parsed data to perform other advanced tasks, say, to analyze the data and facilitate decision-making. It was also clarified that the purpose of this article is not to deep-dive into **AI** and **ML** concepts, but to make the reader aware of more advanced uses of **RegEx** in those applications.
 
-The statement is presented below:
+The statement is restated below:
 
 ```bash
 U.S. National Debt Expected To Approach $89 Trillion By 2029
@@ -276,7 +278,9 @@ Building on all the topics covered in this article, the regular expression used 
 
 Using regular expressions validators like [RegEx 101](https://regex101.com/r/SxCdMO/1), one can see that the regular expression above matches all the components in the statement, namely, it matches the text representing the name of country, "U.S."; the rest of the topic, "National", "Debt" "Expected", "to", "Approach"; the amount, "$89"; the amount unit, "Million"; and the rest of the text, "By", and "2029".
 
-If one only wanted to know the amount of the U.S. National Debt, it would have sufficed to execute the portion of the regular expression that extracts the amount without regard for where in the text the amount is. On the other hand, if the problem were solved by simply tokenizing the text, the solution would not meet the requirement if the text were moved around, thus breaking the logic of parsing the text as simple tokens. It would definitely need more coding to handle that possibility.
+If one only wanted to know, say, the amount of the U.S. National Debt, it would have sufficed to execute the portion of the regular expression that extracts the amount without regard for where the amount is in the text. On the other hand, if the problem were solved by simply tokenizing the text, the solution would not meet the requirement if the text were moved around, thus breaking the logic of parsing the text as simple tokens. It would definitely need more coding to handle that possibility.
+
+In conclusion, the use of **Regular Expressions** provide more flexibility in solving parsing and replacement tasks because they look for patters rather than exact matches.
 
 ## Author
 
