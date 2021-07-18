@@ -280,7 +280,7 @@ Using regular expressions validators like [RegEx 101](https://regex101.com/r/SxC
 
 If one only wanted to know, say, the amount of the U.S. National Debt, it would have sufficed to execute the portion of the regular expression that extracts the amount without regard for where the amount is in the text. On the other hand, if the problem were solved by simply tokenizing the text, the solution would not meet the requirement if the text were moved around, thus breaking the logic of parsing the text as simple tokens. It would definitely need more coding to handle that possibility.
 
-In conclusion, the use of **Regular Expressions** provide more flexibility in solving parsing and replacement tasks because they look for patters rather than exact matches. They also provide more flexibility for the developer to define the beggining and ending structures of the text to be matched. Mastering regular expressions is not an easy task, but once you understand the basics, you have a better chance to build on your knowledge and develop more sophisticated solutions because of the flexibility that regular expressions bring to the table.
+In conclusion, the use of **Regular Expressions** provide more flexibility in solving parsing and replacement tasks because they look for patterns rather than exact matches. They also provide more flexibility for the developer to define the beggining and ending structures of the text to be matched. Mastering regular expressions is not an easy task, but once you understand the basics, you have a better chance to build on your knowledge and develop more sophisticated solutions because of the flexibility that regular expressions bring to the table.
 
 ## Author
 
