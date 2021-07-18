@@ -290,3 +290,7 @@ Sequelize, Bcrypt, DayJS, Google Fonts, and Font Awesome.
 
 Would you like to know more about the _cool_ projects I am building? Check them in [Git Hub](https://github.com/japinell). Want to connect, follow, or contact me to talk about my
 professional career? Check out my [LinkedIn](https://www.linkedin.com/in/japinell/) Profile.
+
+Also, please contact me if you feel something can be improved about this article.
+
+Thank you!
